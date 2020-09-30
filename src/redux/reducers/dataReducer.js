@@ -1,9 +1,7 @@
-import {FETCH_DATA, SAVE_DATA, ADD_POKEMON} from '../types';
+import {FETCH_DATA, SAVE_DATA} from '../types';
 
 const initialState = {
-    data: '',
-    currentPokemon: '',
-    currentAbility: ''
+    data: ''
 };
 
 export const dataReducer = (state = initialState, action) => {
@@ -13,8 +11,6 @@ export const dataReducer = (state = initialState, action) => {
             return {...state, data: action.payload}
         case SAVE_DATA: 
             return {...state, data: action.payload}
-        case ADD_POKEMON: 
-            return {...state, currentPokemon: action.payload}
         default:
             return state
     }

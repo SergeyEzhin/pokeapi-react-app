@@ -1,16 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import {ConnectedRouter} from 'connected-react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Main from './containers/Main/Main';
 import './App.scss';
 import { PokemonDetail } from './components/Card/PokemonDetail/PokemonDetail';
+import { AbilityDetail } from './components/Card/AbilityDetail/AbilityDetail';
+import { fetchData } from './redux/actions';
+import { connect } from 'react-redux';
 
 class App extends React.Component 
 {
+  componentDidMount()
+  {
+    this.props.fetchData();
+  }
+
   render() 
   {
-    let {history} = this.props;
-
     return (
       <div className="wrapper">
         <div className="container wrapper__content">
@@ -18,12 +23,13 @@ class App extends React.Component
               <img src={process.env.PUBLIC_URL + '/img/logo.png'} alt=""/>
           </div>
           <React.Fragment>
-            <ConnectedRouter history={history}>
+            <BrowserRouter>
               <Switch>
                 <Route exact path='/' component={Main} />
                 <Route path='/pokemon/:id' component={PokemonDetail} />
+                <Route path='/ability/:name' component={AbilityDetail} />
               </Switch>
-            </ConnectedRouter>
+            </BrowserRouter>
           </React.Fragment>
         </div>
       </div>
@@ -31,4 +37,9 @@ class App extends React.Component
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  fetchData: () => dispatch(fetchData())
+});
+
+
+export default connect(null, mapDispatchToProps)(App);

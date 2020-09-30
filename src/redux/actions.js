@@ -1,13 +1,12 @@
-import {ADD_POKEMON, FETCH_DATA, SAVE_DATA} from './types';
-import { push } from 'connected-react-router';
+import {FETCH_DATA, SAVE_DATA} from './types';
 
 export const fetchData = () => 
 {
     return dispatch => 
     {
-        if(localStorage.getItem('data'))
+        if(localStorage.getItem('list-pokemons'))
         {
-            let data = localStorage.getItem('data');
+            let data = localStorage.getItem('list-pokemons');
             data = JSON.parse(data);
             dispatch({type: SAVE_DATA, payload: data});
         }
@@ -33,7 +32,7 @@ export const fetchData = () =>
 
                 Promise.all(arrayPromises).then(result => 
                 {
-                    localStorage.setItem('data', JSON.stringify(result));
+                    localStorage.setItem('list-pokemons', JSON.stringify(result));
                     dispatch({type: FETCH_DATA, payload: result});
                 });
             });
@@ -41,12 +40,3 @@ export const fetchData = () =>
     }
 }
 
-
-export const addPokemon = (pokemon) =>
-{
-    return dispatch => 
-    {
-        dispatch({type: ADD_POKEMON, payload: pokemon});
-        dispatch(push('/pokemon/'+ pokemon.id));
-    }
-}
