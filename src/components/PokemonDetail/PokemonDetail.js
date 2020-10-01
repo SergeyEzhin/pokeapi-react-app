@@ -1,12 +1,28 @@
 import React from 'react';
-import { Loader } from '../../../ui/Loader/Loader';
-import {Link} from 'react-router-dom';
+import {Loader} from '../../ui/Loader/Loader';
+import {useDispatch} from 'react-redux';
+import {fetchAbilityData, clearAbilityData} from '../../redux/actions';
 import './PokemonDetail.scss';
 
-export const PokemonDetail = ({location}) => 
+export const PokemonDetail = ({history, location}) => 
 {
-    const { state } = location;
-    console.log(state);
+    const {state} = location;
+    const dispatch = useDispatch();
+    // console.log(state);
+
+    function clickHandler(e)
+    {
+        let button = e.target;
+        let pathToAbility = button.dataset.url;
+        let nameAbility = button.innerHTML;
+
+        dispatch(clearAbilityData());
+        dispatch(fetchAbilityData(pathToAbility));
+       
+        history.push({
+            pathname: '/ability/' + nameAbility
+        });
+    }
 
     if(state)
     {
@@ -58,12 +74,14 @@ export const PokemonDetail = ({location}) =>
                     {
                         return (
                             <li className="list-group-item list-group list__elem" key={index}>
-                                <Link to={`/ability/${elem.ability.name}`}>{elem.ability.name}</Link>
+                                <button type="button" className="btn" onClick={clickHandler} data-url={elem.ability.url}>{elem.ability.name}</button>
                             </li>
                         )
                     })  
                 }
-                </div>   
+                </div>  
+                <br />
+                <button type="button" className="btn btn-primary" onClick={history.goBack}>Вернуться назад</button>
             </div>
         )
     }

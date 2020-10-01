@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Main from './containers/Main/Main';
 import './App.scss';
-import { PokemonDetail } from './components/Card/PokemonDetail/PokemonDetail';
-import { AbilityDetail } from './components/Card/AbilityDetail/AbilityDetail';
+import { PokemonDetail } from './components/PokemonDetail/PokemonDetail';
+import { AbilityDetail } from './components/AbilityDetail/AbilityDetail';
 import { fetchData } from './redux/actions';
 import { connect } from 'react-redux';
 

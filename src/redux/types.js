@@ -1,2 +1,5 @@
 export const FETCH_DATA = 'FETCH_DATA';
 export const SAVE_DATA = 'SAVE_DATA';
+export const FETCH_ABILITY_DATA = 'FETCH_ABILITY_DATA';
+export const SAVE_ABILITY_DATA = 'SAVE_ABILITY_DATA';
+export const CLEAR_ABILITY_DATA = 'CLEAR_ABILITY_DATA';

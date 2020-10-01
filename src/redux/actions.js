@@ -1,12 +1,12 @@
-import {FETCH_DATA, SAVE_DATA} from './types';
+import {FETCH_DATA, SAVE_DATA, FETCH_ABILITY_DATA, SAVE_ABILITY_DATA, CLEAR_ABILITY_DATA} from './types';
 
 export const fetchData = () => 
 {
     return dispatch => 
     {
-        if(localStorage.getItem('list-pokemons'))
+        let data = localStorage.getItem('list-pokemons');
+        if(data)
         {
-            let data = localStorage.getItem('list-pokemons');
             data = JSON.parse(data);
             dispatch({type: SAVE_DATA, payload: data});
         }
@@ -39,4 +39,39 @@ export const fetchData = () =>
         }
     }
 }
+
+export const fetchAbilityData = (path) => 
+{
+    return async dispatch => 
+    {
+        localStorage.removeItem('ability-data');
+        const abilityData = await fetch(path)
+            .then(response => response.json())
+            .then(data => data);
+
+        localStorage.setItem('ability-data', JSON.stringify(abilityData))
+        dispatch({type: FETCH_ABILITY_DATA, payload: abilityData})
+    }
+}
+
+export const saveAbilityData = () => 
+{
+    return dispatch => 
+    {
+        let abilityData = localStorage.getItem('ability-data');
+        if(abilityData)
+        {
+            abilityData = JSON.parse(abilityData);
+            dispatch({type: SAVE_ABILITY_DATA, payload: abilityData});
+        }
+    }
+}
+
+export const clearAbilityData = () => 
+{
+    return {
+        type: CLEAR_ABILITY_DATA
+    }
+}
+
 

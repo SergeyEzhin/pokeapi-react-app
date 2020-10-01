@@ -3,6 +3,7 @@ import './Main.scss';
 import {connect} from 'react-redux';
 import {Loader} from '../../ui/Loader/Loader';
 import Card from '../../components/Card/Card';
+import {Filter} from '../../components/Filter/Filter';
 
 class Main extends React.Component 
 {
@@ -14,14 +15,18 @@ class Main extends React.Component
         {
             // console.log(data);
             return (
-                <div className="row wrapper__row">
-                {
-                    data.map(elem => 
+                <React.Fragment>
+                    <Filter />
+                    <br />
+                    <div className="row wrapper__row">
                     {
-                        return <Card name={elem.name} height={elem.height} weight={elem.weight} key={elem.id} id={elem.id} />
-                    })
-                }
-                </div>
+                        data.map(elem => 
+                        {
+                            return <Card name={elem.name} height={elem.height} weight={elem.weight} key={elem.id} id={elem.id} />
+                        })
+                    }
+                    </div>
+                </React.Fragment>
             )
         }
         else 
