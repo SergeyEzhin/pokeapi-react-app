@@ -1,7 +1,31 @@
 .filter 
 {
+    width: 100%;
     &__elem 
     {
-        
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: transparent;
+        border-bottom: 1px solid rgba(21%, 23%, 25%, .2);
+        padding-bottom: 18px;
+        margin-bottom: 70px;
+        background-repeat: no-repeat;
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #353a40;
+        background-position: 100% 6px;
+        background-size: auto;
+    }
+    &__elem::placeholder 
+    {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #AEB0B3;
     }
 }

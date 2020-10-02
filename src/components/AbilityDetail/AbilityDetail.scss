@@ -1,0 +1,39 @@
+.ability-detail 
+{
+    &__title 
+    {
+        font-size: 30px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #353a40;
+    }
+    &__block 
+    {
+        margin-top: 50px;
+    }
+    &__name 
+    {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: rgba(53, 58, 64, .6);
+        margin: 0;
+    }
+    &__desc 
+    {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #000000;
+        margin-top: 15px;
+    }
+}

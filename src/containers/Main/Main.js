@@ -9,15 +9,13 @@ class Main extends React.Component
 {
     render()
     {
-        let {data} = this.props;
+        let data = this.props.filterData || this.props.data;
 
         if(data.length)
         {
-            // console.log(data);
             return (
                 <React.Fragment>
                     <Filter />
-                    <br />
                     <div className="row wrapper__row">
                     {
                         data.map(elem => 
@@ -38,7 +36,8 @@ class Main extends React.Component
 
 
 const mapStateToProps = state => ({
-   data: state.data.data
+   data: state.data.data,
+   filterData: state.data.filterData
 });
 
 export default connect(mapStateToProps, null)(Main);

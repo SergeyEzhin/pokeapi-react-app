@@ -1,4 +1,4 @@
-import {FETCH_DATA, SAVE_DATA, FETCH_ABILITY_DATA, SAVE_ABILITY_DATA, CLEAR_ABILITY_DATA} from './types';
+import {FETCH_DATA, SAVE_DATA, FETCH_ABILITY_DATA, SAVE_ABILITY_DATA, CLEAR_ABILITY_DATA, ADD_FILTER, CLEAR_FILTER} from './types';
 
 export const fetchData = () => 
 {
@@ -73,5 +73,20 @@ export const clearAbilityData = () =>
         type: CLEAR_ABILITY_DATA
     }
 }
+
+export const addFilter = (array) => 
+{
+    return {
+        type: ADD_FILTER, 
+        payload: array
+    }
+}
+
+export const clearFilter = () => 
+{
+    return {type: CLEAR_FILTER}
+}
+
+
 
 

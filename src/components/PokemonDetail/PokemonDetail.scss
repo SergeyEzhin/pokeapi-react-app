@@ -1,11 +1,135 @@
 .pokemon-detail 
 {
+    h2 
+    {
+        font-size: 30px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #353a40;
+    }
+    h3 
+    {
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #353a40;
+    }
     &__title 
     {
-        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+    &__subtitle 
+    {
+        margin-bottom: 30px;
+    }
+    &__avatar 
+    {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        img 
+        {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+    }
+    &__name 
+    {
+        margin-left: 20px;
     }
     &__content 
     {
-        margin-bottom: 20px;
+        margin-top: 80px;
+    }
+    &__row 
+    {
+        margin-left: -100px;
+        margin-right: -100px;
+    }
+    &__column 
+    {   
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+.specifications 
+{
+    &__row 
+    {
+        padding-bottom: 29px;
+        border-bottom: 1px solid #eeeeee;
+        margin-top: 30px;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    &__name 
+    {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: rgba(53, 58, 64, .6);
+        padding: 0;
+    }
+    &__value 
+    {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #000000;
+        text-align: right;
+        padding: 0;
+    }
+}
+
+.list-abilities 
+{
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    &__btn 
+    {
+        margin-right: 20px;
+        margin-top: 20px;
+        min-width: 112px;
+        min-height: 30px;
+        border-radius: 50px;
+        background-color: #eeeeee;
+        text-align: center;
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #353a40;
+        transition: .3s;
+        cursor: pointer;
+        outline: none !important;
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    &__btn:hover 
+    {
+        background-color: #ffc821;
     }
 }

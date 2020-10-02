@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Loader} from '../../ui/Loader/Loader';
 import {saveAbilityData} from '../../redux/actions';
 import './AbilityDetail.scss';
+import { ButtonBack } from '../../ui/ButtonBack/ButtonBack';
 
 export const AbilityDetail = ({history}) => 
 {
@@ -11,44 +12,24 @@ export const AbilityDetail = ({history}) =>
 
     if(abilityData)
     {
-        // console.log(abilityData);
         return (
             <div className="ability-detail">
                 <div className="ability-detail__title">
                     <h2>Описание способности:</h2>
+                </div> 
+                <div className="ability-detail__block">
+                    <p className="ability-detail__name">Название</p>
+                    <p className="ability-detail__desc">{abilityData.name}</p>
                 </div>
-                <div className="ability-detail__content">
-                    <div className="row ability-detail__row">
-                        <div className="col-md-3">
-                            <p>Название:</p>
-                        </div>
-                        <div className="col-md-9">
-                            <p>{abilityData.name}</p>
-                        </div>
-                    </div>
+                <div className="ability-detail__block">
+                    <p className="ability-detail__name">Поколение</p>
+                    <p className="ability-detail__desc">{abilityData.generation.name}</p>
                 </div>
-                <div className="ability-detail__content">
-                    <div className="row ability-detail__row">
-                        <div className="col-md-3">
-                            <p>Поколение:</p>
-                        </div>
-                        <div className="col-md-9">
-                            <p>{abilityData.generation.name}</p>
-                        </div>
-                    </div>
+                <div className="ability-detail__block">
+                    <p className="ability-detail__name">Входной эффект</p>
+                    <p className="ability-detail__desc">{abilityData.effect_entries[1].effect}</p>
                 </div>
-                <div className="ability-detail__content">
-                    <div className="row ability-detail__row">
-                        <div className="col-md-3">
-                            <p>Входной эффект:</p>
-                        </div>
-                        <div className="col-md-9">
-                            <p>{abilityData.effect_entries[1].effect}</p>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <button type="button" className="btn btn-primary" onClick={history.goBack}>Вернуться назад</button>
+                <ButtonBack history={history} />
             </div>
         )
     }
